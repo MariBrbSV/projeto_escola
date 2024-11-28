@@ -1,0 +1,12 @@
+{
+    "nome": "Pedro",
+    "idade": 12,
+    "turma": {
+        "nome": "6º EF",
+        "ano": 2024
+    },
+    "notas": [
+        {"disciplina": "Matemática", "nota": 7.5},
+        {"disciplina": "Filosofia", "nota": 2.3}
+    ]
+}

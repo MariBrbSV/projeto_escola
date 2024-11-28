@@ -1,0 +1,20 @@
+
+{
+    "nome": "Marina Sena",                              
+    "idade": 28,                                       
+    "altura": 1.72,                                    
+    "albuns": [                                        
+        {"album": "de_primeira", "genero": ["mpb","pop"] },
+        {"album": "vicio_inerente", "genero": ["pop","urbano"]}
+    ],
+
+    "musicas_famosas": 
+        ["Tudo pra amar você","Por Supuesto","Ombrin"],
+    
+    "shows": [
+        {"data": "15 de setembro", "horario": "22:00hrs", "local": "Campo Grande - MS"},
+        {"data": "05 de setembro","horario": "20:00hrs", "local": "São Luís - MA"}
+
+    ]
+}
+

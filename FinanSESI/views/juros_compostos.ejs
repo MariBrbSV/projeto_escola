@@ -1,0 +1,41 @@
+<head> 
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<a href="/"> <img class="botao-voltar" src="./img/botao-voltar.png"> </a>
+ 
+
+<h1 class="titulo"> Juros Compostos </h1>
+
+<h2 class="resumo"> Os Juros Compostos são calculados considerando a atualização do capital, ou seja, 
+    <br> o juro incide não apenas no valor inicial, mas também sobre os juros acumulados (juros sobre juros).</h2>
+
+
+     <br>
+
+<form action="/juros_compostos" method="POST">
+    <label for="capital"> Capital Inicial (P):</label>
+    <input type="number" id="capital" name="capital" placeholder="Ex: 1000" required> <br>
+
+    <label for="taxa"> Taxa de Juros: (% ao mês) (P):</label>
+    <input type="number" id="taxa" name="taxa" placeholder="Ex: 5" required> <br>
+
+    <label for="capital"> Tempo (meses) (P):</label>
+    <input type="number" id="tempo" name="tempo" placeholder="Ex: 12" required>
+
+
+    <button type="submit"> Calcular </button>
+</form>
+
+
+
+<% if (typeof j != 'undefined') { %>
+    <div class="resultado">
+        <h2> Resultado:</h2> 
+        <p> Juros Compostos: R$ <%= j.toFixed(2) %> </p>
+        <p> Taxa: <%= i %> % ao mês </p>
+        <p> Tempo: <%= t %> meses </p>
+        <p> Total: R$ <%= r.toFixed(2) %> </p>
+
+    </div>
+<% } %>

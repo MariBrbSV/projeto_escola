@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Luckiest+Guy&family=Matemasie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Luckiest+Guy&family=Matemasie&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Indie+Flower&family=Luckiest+Guy&family=Matemasie&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Pinyon+Script&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e7f3ff;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
+header {
+    background-color: rgb(0, 0, 255);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:aliceblue;
+    box-shadow: 0 3px 4px rgba(13, 0, 255, 0.5);
+
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family:"Architects Daughter";
+    letter-spacing: 2px;
+}
+
+header > nav {
+    display: flex;
+    gap: 15px;
+
+}
+
+header > nav > a{
+    text-decoration: none;
+    color: #ffff;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffff;
+    
+}
+
+footer {
+    background-color: rgb(0, 0, 255);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -3px 4px rgba(13, 0, 255, 0.5); 
+}
+
+header > nav > a:hover {
+    text-decoration: underline;
+    scale: 1.2;
+    color: rgb(28, 8, 101)
+}
+
+.titulo {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+button {
+    background-image: linear-gradient(to right, #000dff, #007ffe, #0004ff);;
+    color:#e7f3ff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+button:hover {
+    background-image: linear-gradient(to right, #0091ff, #0091ff, #0091ff);
+}
+
+.resultado {
+    text-align: center;
+}
+
+.card {
+    width: 400px;
+    height: 400px;
+    flex: 0 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px #002596;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3 ease;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-2);
+    box-shadow: 0 8px 12px #000dff
+}
+
+.imagem-card{
+    margin: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height:200px;
+}
+
+
+.titulo-card {
+    margin: 1;
+    font-size: 2rem;
+    color: #002596;
+    text-align: center;
+    
+
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+    flex-wrap: wrap;
+    
+}
+
+.resumo {
+    text-align: center;
+    font-size:15px;
+
+}
+
+.botao-voltar {
+    height: 40px;
+}
+
+.nome-desenv {
+    font-family: "Pinyon Script";
+    font-size: 50px;
+    margin: 10px;
+}

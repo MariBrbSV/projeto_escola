@@ -1,0 +1,43 @@
+<head> 
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<a href="/"> <img class="botao-voltar" src="./img/botao-voltar.png"> </a>
+ 
+
+
+<h1 class="titulo"> Juros Simples </h1>
+
+<h2 class="resumo"> O juros simples é calculado com base em um valor fixado chamado de capital inicial. 
+    <br> Trata-se de uma porcentagem do capital inicial aplicada durante determinado tempo.
+     <br>A principal característica do juros simples é que o valor não se altera no decorrer dos meses</h2>
+
+     <br>
+
+<form action="/juros_simples" method="POST">
+    <label for="capital"> Capital Inicial (P):</label>
+    <input type="number" id="capital" name="capital" placeholder="Ex: 1000" required> <br>
+
+    <label for="taxa"> Taxa de Juros: (% ao mês) (P):</label>
+    <input type="number" id="taxa" name="taxa" placeholder="Ex: 5" required> <br>
+
+    <label for="capital"> Tempo (meses) (P):</label>
+    <input type="number" id="tempo" name="tempo" placeholder="Ex: 12" required>
+
+
+    <button type="submit"> Calcular </button>
+</form>
+
+
+
+<% if (typeof j != 'undefined') { %>
+    <div class="resultado">
+        <h2> Resultado:</h2> 
+        <p> Juros Simples: R$ <%= j.toFixed(2) %> </p>
+        <p> Taxa: <%= i %> % ao mês </p>
+        <p> Tempo: <%= t %> meses </p>
+        <p> Juros Simples: R$ <%= j.toFixed(2) %> </p>
+        <p> Total: R$ <%= total.toFixed(2) %> </p>
+
+    </div>
+<% } %>

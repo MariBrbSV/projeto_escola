@@ -1,0 +1,59 @@
+<%- include('../includes/header.ejs', { titulo : 'Lista Alunos'}) %>
+
+<main>
+    <h2> Lista de Alunos </h2>
+
+    <a href="/alunos/novo" class="btn btn-primary"> Adicionar alunos</a>
+
+
+<% if (typeof mensagem != 'undefined') { %>
+    <p class="erro"> <%=mensagem %> </p>
+<% } %>
+
+
+    <table class="dados-table">
+        <thead> 
+            <tr> 
+                <th> Nome  </th>
+                <th> Idade </th>
+                <th> Email </th>
+                <th> Sexo </th>
+                <th> CPF </th>
+                <th> Ações </th>
+            </tr>
+        </thead> 
+        <tbody>
+            <% for(let aluno of vetorDados){ %>
+                <tr>
+                    <td> <%= aluno.nome %> </td>
+                    <td> <%= aluno.idade %> </td>
+                    <td> <%= aluno.email %> </td>
+                    <td> <%= aluno.sexo %> </td>
+                    <td> <%= aluno.cpf %> </td>
+                    <td> 
+                        <a href="/alunos/<%= aluno.id_aluno %>/editar" class="btn btn-edit"> Editar</a>
+                        <form action="/alunos/<%= aluno.id_aluno %>/deletar" method="POST">
+                            <button type="submit" class="btn btn-delete"> Excluir </button>
+                        </form>
+                    </td>
+                </tr>
+                
+            <% } %>
+        </tbody>
+    </table>
+
+    <div class="pagination"> 
+        <% if(pgAtual > 1) { %>
+            <a href="/disciplinas?pg=<%= pgAtual-1 %>"> Anterior </a>
+        <% } %>
+
+        <span> Página <%= pgAtual %> de <%= totalPgs %> </span>
+    
+        <% if(pgAtual < totalPgs ) { %>
+            <a href="/disciplinas?pg=<%= pgAtual+1 %>"> Proxima </a>
+        <% } %>
+    </div>
+
+</main>
+
+<%- include('../includes/footer.ejs',) %>

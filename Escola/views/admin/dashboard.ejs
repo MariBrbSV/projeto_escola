@@ -1,0 +1,137 @@
+<%- include('../includes/header.ejs', { titulo : 'Dashboard'}) %>
+
+<main class="container-fluid">
+    <div class="banner-dashboard text-white text-center py-3 mb-4">
+        <h2> Dashboard - Gerenciamento Escolar </h1>
+    </div>
+
+    <!-- Cards principais com valores -->
+    <section class="row mb-4 text-center"> 
+        <!-- Card Total de Alunos -->
+        <div class="col-md-3"> 
+            <div class="card shadow-sm card-dec">
+                <div class="card-body">
+                <h5 class="card-title"> Total de Alunos: </h5>
+                <p class="card-text display-4"> <%=totalAlunos%> </p>
+             </div>
+            </div>
+        </div>
+
+        <!-- Card Total de Disciplinas -->
+        <div class="col-md-3"> 
+            <div class="card shadow-sm card-dec">
+                <div class="card-body">
+                <h5 class="card-title"> Total de disciplinas: </h5>
+                <p class="card-text display-4"> <%=totalDisciplinas%> </p>
+             </div>
+            </div>
+        </div>
+
+        <!-- Card Taxa de Aprovação -->
+        <div class="col-md-3"> 
+            <div class="card shadow-sm card-dec">
+                <div class="card-body">
+                <h5 class="card-title"> Taxa de Aprovação: </h5>
+                <p class="card-text display-4"> 75% </p>
+             </div>
+            </div>
+        </div>
+
+        <!-- Card Total de Alunos Reprovados -->
+        <div class="col-md-3"> 
+            <div class="card shadow-sm card-dec">
+                <div class="card-body">
+                <h5 class="card-title"> Total de Alunos Reprovados: </h5>
+                <p class="card-text display-4"> 15 </p>
+             </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section dos gráficos -->
+     <section class=row> 
+        <!-- Gráfico de Barras -->
+         <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header banner-dashboard text-center text-white">
+                    Média por Disciplinas
+                </div>
+                <div class="card-body">
+                    <canvas id="barrasMediaDisciplina"> </canvas>
+                </div>
+            </div>
+         </div>
+
+         <!-- Gráfico de Pizza -->
+         <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header banner-dashboard text-center text-white">
+                    Aprovação dos Alunos
+                </div>
+                <div class="card-body">
+                    <canvas id="pizzaAprovacaoAlunos"> </canvas>
+                </div>
+            </div>
+         </div>
+
+     </section>
+     </main>
+
+     <script> 
+        const dadosMediaDisciplinas = <%- JSON.stringify(mediaDisciplinas) %>;
+//extraindo nome e media para gerar vetores individuais para os dados do gráfico
+const nomesDisciplinas = dadosMediaDisciplinas.map(d => d.nome_disciplina)
+const mediaDisciplinas = dadosMediaDisciplinas.map(d => d.media)
+        // Bar Chart - Média de Notas por Disciplina
+        const barCtx = document.getElementById('barrasMediaDisciplina').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: nomesDisciplinas,
+                    datasets: [{
+                        label: 'Média de Notas',
+                        data: mediaDisciplinas,
+                        backgroundColor: ['#fe0702', '#e64529', '#d31c2e', '#620000', '#c62315']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+
+
+            // Gráfico de Pizza 
+            const dadosAprovacaoAlunos = <%- JSON.stringify(statusAluno) %>;
+            const statusAluno = dadosAprovacaoAlunos.map(x => x.status)
+            const qtdAluno = dadosAprovacaoAlunos.map(x => x.total)
+            
+            const pieCtx = document.getElementById('pizzaAprovacaoAlunos').getContext('2d');
+            new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: statusAluno,
+                    datasets: [{
+                        data: qtdAluno,
+                        backgroundColor: ['#c41c0b', '#d35038', '#e18464', '#f0b891', '#ffecbe']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: true },
+                        tooltip: { enabled: true }
+                    }
+                }
+            });
+
+     </script>
+
+</main>
+
+<%- include('../includes/footer.ejs',) %>
+

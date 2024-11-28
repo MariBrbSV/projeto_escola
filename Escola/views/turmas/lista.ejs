@@ -1,0 +1,49 @@
+<%- include('../includes/header.ejs', { titulo : 'Lista Turmas'}) %>
+
+<main>
+    <h2> Lista de Turmas </h2>
+
+    <a href="/turmas/novo" class="btn btn-primary"> Adicionar turmas</a>
+
+    <% if (typeof mensagem != 'undefined') { %>
+        <p class="erro"> <%=mensagem %> </p>
+    <% } %>
+
+    <form action="/turmas/" method="GET" class="form form-consulta"> 
+        <input type="text" name="busca" 
+            value="<%= busca %>"
+            placeholder="Buscar turmas" />
+        <button type="submit" class="btn btn-primary"> Buscar </button>
+        <select name="ordenar" onchange="this.form.submit()">
+            <option value="turma"
+            <%= ordenar == 'turma' ? 'selected' : '' %>> Ordernar por turma </option>
+            
+        </select>
+    </form>
+
+    <table class="dados-table">
+        <thead> 
+            <tr> 
+                <th> Nome </th>
+                <th> Ações </th>
+            </tr>
+        </thead> 
+        <tbody>
+            <% for (let turma of vetorDados) { %>
+                <tr>
+                    <td> <%= turma.nome_turma %> </td>
+                    <td> 
+                        <a href="/turmas/<%= turma.id_turma %>/editar" class="btn btn-edit"> Editar</a>
+                        <form action="/turmas/<%= turma.id_turma %>/deletar" method="POST">
+                            <button type="submit" class="btn btn-delete"> Excluir </button>
+                        </form>
+                    </td>
+                </tr>
+                
+            <% } %>
+        </tbody>
+    </table>
+
+</main>
+
+<%- include('../includes/footer.ejs',) %>

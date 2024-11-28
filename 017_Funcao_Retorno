@@ -1,0 +1,16 @@
+function calcularComissao(valorVenda, percComissão){
+    percComissão = percComissão / 100
+    const comissaoTotal = valorVenda * percComissão
+    return comissaoTotal
+    // Tudo que colocar depois do return não será executado
+    console.log(comissaoTotal)
+}
+
+let comissao = calcularComissao(1000, 25)
+console.log(comissaoTotal)
+
+comissao = calcularComissao(80000, 7)
+console.log(comissao.toFixed(2))
+
+console.log(calcularComissao(5500, 10))
+
